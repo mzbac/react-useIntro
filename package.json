@@ -1,0 +1,25 @@
+{
+  "name": "react-useintro",
+  "version": "1.0.0",
+  "description": "a tooltip walkthrough libray",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mzbac/react-useIntro.git"
+  },
+  "keywords": [
+    "walkthrough",
+    "intro",
+    "tooltip",
+    "tour"
+  ],
+  "author": "mzbac",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mzbac/react-useIntro/issues"
+  },
+  "homepage": "https://github.com/mzbac/react-useIntro#readme"
+}
