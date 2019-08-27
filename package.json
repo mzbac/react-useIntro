@@ -4,7 +4,9 @@
   "description": "a tooltip walkthrough libray",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebuild": "rimraf lib/*",
+    "test": "jest",
+    "build": "babel --ignore '**/*.test.js' --out-dir lib src"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,15 @@
   "bugs": {
     "url": "https://github.com/mzbac/react-useIntro/issues"
   },
-  "homepage": "https://github.com/mzbac/react-useIntro#readme"
+  "homepage": "https://github.com/mzbac/react-useIntro#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4"
+  }
 }
