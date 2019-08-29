@@ -1,0 +1,40 @@
+{
+  "name": "react-useintro",
+  "version": "1.0.0",
+  "description": "a tooltip walkthrough libray",
+  "main": "lib/index.js",
+  "scripts": {
+    "prebuild": "rimraf lib/*",
+    "test": "jest",
+    "build": "babel --ignore '**/*.test.js' --out-dir lib src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mzbac/react-useIntro.git"
+  },
+  "keywords": [
+    "walkthrough",
+    "intro",
+    "tooltip",
+    "tour"
+  ],
+  "author": "mzbac",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mzbac/react-useIntro/issues"
+  },
+  "homepage": "https://github.com/mzbac/react-useIntro#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
