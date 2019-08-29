@@ -16,8 +16,7 @@ const ReactIntro = props => {
     window.addEventListener("resize", resizeHandler);
     return () => window.removeEventListener("resize", resizeHandler);
   });
-
-  return <div>hello world</div>;
+  return props.children;
 };
 
 export default ReactIntro;

@@ -21,12 +21,13 @@ export const useIntro = (config = {}) => {
     }, []);
     return inputEl;
   };
-  return () =>
+  return props =>
     createPortal(
       <ReactIntro
         stepMgr={stepMgr}
         position={validateIntroPosition(position)}
         arrowPosition={validateIntroArrowPosition(arrowPosition)}
+        {...props}
       />,
       portal
     );
