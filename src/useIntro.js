@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import ReactIntro from "./reactIntro";
+import ReactIntro from "./component/reactIntro";
 import { getStepManager } from "./stepManager";
 import {
   createPortalNode,
