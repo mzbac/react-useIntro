@@ -20,6 +20,8 @@ export const getContainerPosition = ({
   positionMargin = 0
 }) => {
   if (!targetRef) return {};
+  if (!containerSize) return {};
+
   const targetElmPosition = targetRef.getBoundingClientRect();
   const scrollY =
     window.scrollY !== undefined ? window.scrollY : window.pageYOffset;
