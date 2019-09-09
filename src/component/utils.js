@@ -110,7 +110,7 @@ export const getContainerPosition = ({
 export const checkWindowPositionForContainer = ({
   containerPosition,
   containerSize,
-  positionMargin,
+  positionMargin = 10,
   position
 }) => {
   if (position === "top" || position === "bottom") {

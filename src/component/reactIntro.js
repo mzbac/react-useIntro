@@ -1,10 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
-import Intro from "./intro";
-import { getContainerSize, getContainerPosition } from "./utils";
+import {
+  getContainerSize,
+  getContainerPosition,
+  checkWindowPositionForContainer,
+  isOffScreen
+} from "./utils";
 
 const ReactIntro = props => {
   const [, forceUpdate] = useState();
   const [containerSize, setContainerSize] = useState();
+  const [offScreen, setOffScreen] = useState(false);
+
   let timeoutId;
   const resizeDelay = 30;
   const resizeHandler = () => {
@@ -34,24 +40,38 @@ const ReactIntro = props => {
     React.cloneElement(child)
   );
   const containerPosition = getContainerPosition({
-    position: props.position,
-    arrowPosition: props.arrowPosition,
+    position: offScreen ? props.fallbackPosition : props.position,
+    arrowPosition: offScreen
+      ? props.fallbackArrowPosition
+      : props.arrowPosition,
     targetRef: props.stepMgr.currentStep(),
     containerSize
   });
+
+  const repositionedContainer = checkWindowPositionForContainer({
+    containerPosition,
+    containerSize: containerSize || {},
+    position: offScreen ? props.fallbackPosition : props.position
+  });
+  const currentOffScreen = isOffScreen(
+    offScreen ? props.fallbackPosition : props.position,
+    repositionedContainer,
+    containerSize
+  );
+
+  if (currentOffScreen !== offScreen) {
+    setOffScreen(currentOffScreen);
+  }
+
   const style = {
     position: "absolute",
-    top: containerPosition.top,
-    left: containerPosition.left
+    top: repositionedContainer.top,
+    left: repositionedContainer.left
   };
 
-  return props.children ? (
+  return (
     <div style={style} ref={ref}>
       {childrenWithProps}
-    </div>
-  ) : (
-    <div style={style} ref={ref}>
-      <Intro />
     </div>
   );
 };
